@@ -2,25 +2,31 @@
   "name": "node-ts-express",
   "version": "0.0.1",
   "description": "",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon server/index.ts",
-    "build": "tsc -p .",
-    "serve": "node dist/index.js",
-    "start": "run-s build serve"
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "npm-run-all": "^4.1.5",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.12",
     "@types/node": "^15.12.2",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "nodemonConfig": {
+    "ext": "ts",
+    "exec": "npm run build && npm start"
   }
 }
