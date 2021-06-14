@@ -2,7 +2,7 @@
   "name": "node-ts-express",
   "version": "0.0.1",
   "description": "",
-  "main": "server/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon server/index.ts",
     "build": "tsc -p .",
