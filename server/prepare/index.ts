@@ -1,8 +1,15 @@
 import express from 'express';
 // import cors from 'cors';
 
+import { db } from './db/mongodbConnection';
+
 import * as homeController from './homeController';
 import * as errorController from './errorController';
+
+// DBに接続できたらログを表示する
+db.once('open', () => {
+  console.log('MongoDB open Success with Mongoose');
+});
 
 const app = express();
 
