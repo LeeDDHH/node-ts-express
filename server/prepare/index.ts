@@ -3,6 +3,8 @@ import express from 'express';
 
 import { db } from './db/mongodbConnection';
 
+import UserModel, { searchOneQuery } from './models/userSubscriber';
+
 import * as homeController from './homeController';
 import * as errorController from './errorController';
 
@@ -10,6 +12,17 @@ import * as errorController from './errorController';
 db.once('open', () => {
   console.log('MongoDB open Success with Mongoose');
 });
+
+const getData = async () => {
+  try {
+    const result = await searchOneQuery('kakaokamo2', 'test').exec();
+    console.log('result: ' + result);
+  } catch (error) {
+    console.log('error: ' + error);
+  }
+}
+
+getData();
 
 const app = express();
 
