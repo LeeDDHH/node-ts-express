@@ -11,7 +11,8 @@ interface User extends Document {
 // スキーマの定義
 const subscriberSchema = new Schema<User>({
   name: { type: String, required: true },
-  email: { type: String, required: true},
+  email: { type: String, required: true },
+  note: { type: String },
 });
 
 // スキーマをインスタンス化してモデルとして扱う

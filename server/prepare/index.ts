@@ -5,8 +5,9 @@ import { db } from './db/mongodbConnection';
 
 import UserModel, { searchOneQuery } from './models/userSubscriber';
 
-import * as homeController from './homeController';
-import * as errorController from './errorController';
+import * as homeController from './controllers/homeController';
+import * as errorController from './controllers/errorController';
+import * as userController from './controllers/userController';
 
 // DBに接続できたらログを表示する
 db.once('open', () => {
@@ -39,7 +40,11 @@ app.get('/', homeController.indexGetRequest);
 
 app.get('/item/:itemName', homeController.itemGetRequestParm);
 
+app.get('/users',userController.getAllUsers);
+
 app.post('/', homeController.indexPostRequest);
+
+app.post('/userRegister', userController.saveUser);
 
 app.post('/contact', homeController.contactPostRequest);
 
